@@ -56,6 +56,10 @@ class ExperimentConfig:
     warmup_ratio: float = 0.1
     label_smoothing_factor: float = 0.1
 
+    dataloader_num_workers: int = 2
+    dataloader_pin_memory: bool = True
+    fp16: bool = True
+
     max_source_length: int = 128
     max_target_length: int = 128
 
@@ -107,6 +111,21 @@ EXPERIMENTS: dict[str, ExperimentConfig] = {
         test_file=TEST_FILE,
         checkpoint_dir=CHECKPOINTS_DIR / "hust_original",
         tokenized_dir=TOKENIZED_DIR / "hust" / "hust_original",
+
+    # --- override hyperparams so với default ---
+        num_train_epochs=3,
+        per_device_train_batch_size=16,
+        per_device_eval_batch_size=16,
+        gradient_accumulation_steps=2,
+        learning_rate=3e-4,
+        weight_decay=0.01,
+        warmup_ratio=0.1,
+        label_smoothing_factor=0.1,
+        dataloader_num_workers=8,  # Tận dụng CPU nhiều core
+        dataloader_pin_memory=True,
+        fp16=False,
+        max_source_length=128,
+        max_target_length=128,
     ),
 
     # 4) HUST small + train augmented
@@ -118,6 +137,20 @@ EXPERIMENTS: dict[str, ExperimentConfig] = {
         test_file=TEST_FILE,
         checkpoint_dir=CHECKPOINTS_DIR / "hust_augmented",
         tokenized_dir=TOKENIZED_DIR / "hust" / "hust_augmented",
+
+        num_train_epochs=3,
+        per_device_train_batch_size=16,
+        per_device_eval_batch_size=16,
+        gradient_accumulation_steps=2,
+        learning_rate=3e-4,
+        weight_decay=0.01,
+        warmup_ratio=0.1,
+        label_smoothing_factor=0.1,
+        dataloader_num_workers=8,  # Tận dụng CPU nhiều core
+        dataloader_pin_memory=True,
+        fp16=False,
+        max_source_length=128,
+        max_target_length=128,
     ),
 }
 
