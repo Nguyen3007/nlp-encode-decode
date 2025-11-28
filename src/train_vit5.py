@@ -70,12 +70,6 @@ def train_vit5(exp_name: str, resume: bool = False):
     """
     cfg: ExperimentConfig = get_experiment(exp_name)
 
-    if not cfg.name.startswith("vit5"):
-        raise ValueError(
-            f"Experiment '{exp_name}' không phải dành cho Vit5. "
-            f"Hãy dùng: vit5_original hoặc vit5_augmented."
-        )
-
     print(f"[INFO] ==== Training ViT5 for experiment: {cfg.name} ====")
     print(f"[INFO] Model name     : {cfg.model_name}")
     print(f"[INFO] Checkpoint dir : {cfg.checkpoint_dir}")
