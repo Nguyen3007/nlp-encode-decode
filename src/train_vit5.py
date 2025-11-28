@@ -46,7 +46,7 @@ def build_training_arguments(cfg: ExperimentConfig) -> Seq2SeqTrainingArguments:
 
         # Generate + metric
         predict_with_generate=True,
-
+        generation_max_length=128,
         # Không log lên wandb, tensorboard...
         report_to="none",
 
