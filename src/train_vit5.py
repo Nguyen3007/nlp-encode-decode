@@ -54,7 +54,7 @@ def build_training_arguments(cfg: ExperimentConfig) -> Seq2SeqTrainingArguments:
         fp16=cfg.fp16,
 
         dataloader_num_workers=cfg.dataloader_num_workers,
-        ddataloader_pin_memory=cfg.dataloader_pin_memory,
+        dataloader_pin_memory=cfg.dataloader_pin_memory,
 
         # Load best model theo metric
         load_best_model_at_end=True,
