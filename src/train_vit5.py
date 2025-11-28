@@ -70,7 +70,7 @@ def train_vit5(exp_name: str, resume: bool = False):
     """
     cfg: ExperimentConfig = get_experiment(exp_name)
 
-    print(f"[INFO] ==== Training ViT5 for experiment: {cfg.name} ====")
+    print(f"[INFO] ==== Training for experiment: {cfg.name} ====")
     print(f"[INFO] Model name     : {cfg.model_name}")
     print(f"[INFO] Checkpoint dir : {cfg.checkpoint_dir}")
     print(f"[INFO] Tokenized dir  : {cfg.tokenized_dir}")
@@ -132,7 +132,7 @@ def train_vit5(exp_name: str, resume: bool = False):
     trainer.save_model(final_dir)
     tokenizer.save_pretrained(final_dir)
 
-    print("[INFO] ==== Done training ViT5 for experiment:", cfg.name, "====")
+    print("[INFO] ==== Done training for experiment:", cfg.name, "====")
 
 
 if __name__ == "__main__":
@@ -143,7 +143,7 @@ if __name__ == "__main__":
         "--exp",
         type=str,
         required=True,
-        help="Tên experiment: vit5_original | vit5_augmented",
+        help="Tên experiment: vit5_original | vit5_augmented | hust_original | hust_augmented",
     )
     parser.add_argument(
         "--resume",
