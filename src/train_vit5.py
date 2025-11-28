@@ -39,10 +39,10 @@ def build_training_arguments(cfg: ExperimentConfig) -> Seq2SeqTrainingArguments:
 
         # Logging & saving
         logging_steps=100,
-        save_steps=1000,
+        save_steps=500,
         eval_strategy="steps",
-        eval_steps=1000,
-        save_total_limit=3,
+        eval_steps=500,
+        save_total_limit=1,
 
         # Generate + metric
         predict_with_generate=True,
