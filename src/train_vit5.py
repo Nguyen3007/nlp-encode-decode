@@ -42,7 +42,7 @@ def build_training_arguments(cfg: ExperimentConfig) -> Seq2SeqTrainingArguments:
         save_steps=500,
         eval_strategy="steps",
         eval_steps=500,
-        save_total_limit=1,
+        save_total_limit=2,
 
         # Generate + metric
         predict_with_generate=True,
