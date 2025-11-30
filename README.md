@@ -1,6 +1,6 @@
 # Vietnamese Machine Translation — Encoder–Decoder Experiments
 
-Fine-tuning ViT5 & HUST T5 (Seq2Seq) trên tập IWSLT (English → Vietnamese)
+Fine-tuning ViT5 & HUST T5 (Seq2Seq) trên tập IWSLT2025 (English → Vietnamese) from https://nlp.stanford.edu/projects/nmt/
 
 Dự án này triển khai 4 thí nghiệm fine-tuning mô hình dịch máy encoder–decoder trên tập dữ liệu En–Vi (IWSLT). Pipeline được thiết kế để dễ phát triển cục bộ, huấn luyện trên GPU thuê (VastAI), lưu model lên Hugging Face và đánh giá bằng metrics truyền thống BLEU / ROUGE & LLM evaluation chấm điểm. Có demo Colab trực quan để chạy nhanh.
 
