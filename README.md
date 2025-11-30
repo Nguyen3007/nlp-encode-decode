@@ -19,8 +19,8 @@ Dự án này triển khai 4 thí nghiệm fine-tuning mô hình dịch máy enc
 Xây dựng và đánh giá hiệu năng các mô hình Seq2Seq Transformer cho Machine Translation (English → Vietnamese), đồng thời so sánh ảnh hưởng của dữ liệu tăng cường (synthetic / augmented data) trên các mô hình lớn và nhỏ.
 
 So sánh giữa:
-- ViT5-base (VietAI/vit5-base) — baseline mạnh
-- HUST T5 Small (NlpHUST/t5-en-vi-small) — mô hình nhỏ, nhanh
+- ViT5-base (VietAI/vit5-base)
+- HUST T5 Small (NlpHUST/t5-en-vi-small) 
 - Mỗi mô hình thử với dữ liệu Original và Augmented
 
 ---
