@@ -2,7 +2,7 @@
 
 Fine-tuning ViT5 & HUST T5 (Seq2Seq) trên tập IWSLT (English → Vietnamese)
 
-Dự án này triển khai 4 thí nghiệm fine-tuning mô hình dịch máy encoder–decoder trên tập dữ liệu En–Vi (IWSLT). Pipeline được thiết kế để dễ phát triển cục bộ, huấn luyện trên GPU thuê (VastAI), lưu model lên Hugging Face và đánh giá bằng BLEU / ROUGE / PPL. Có demo Colab trực quan để chạy nhanh.
+Dự án này triển khai 4 thí nghiệm fine-tuning mô hình dịch máy encoder–decoder trên tập dữ liệu En–Vi (IWSLT). Pipeline được thiết kế để dễ phát triển cục bộ, huấn luyện trên GPU thuê (VastAI), lưu model lên Hugging Face và đánh giá bằng metrics truyền thống BLEU / ROUGE & LLM evaluation chấm điểm. Có demo Colab trực quan để chạy nhanh.
 
 ---
 
@@ -68,7 +68,7 @@ python -m src.train_vit5 --exp vit5_original
 python -m src.train_vit5 --exp vit5_original --resume
 ```
 
-3) Evaluate (BLEU / ROUGE / Loss / PPL)
+3) Evaluate (BLEU / ROUGE / Loss)
 ```bash
 python -m src.evaluate --exp vit5_original
 ```
@@ -83,17 +83,16 @@ Gợi ý: kiểm tra config ở `src/config.py` để điều chỉnh hyperparam
 |-------------------|--------|---------|---------|---------|
 | HUST Original     | 0.3276 | 0.7440  | 0.5272  | 0.6636  |
 | HUST Augmented    | 0.3287 | 0.7470  | 0.5354  | 0.6666  |
-| ViT5 Original     | ~0.41–0.45 (tùy môi trường) | ~0.66+ | ~0.57+ | — |
-| ViT5 Augmented    | Tăng nhẹ so với original (tùy môi trường) | — | — | — |
+| ViT5 Original     | 0.1539 | 0.6272  | 0.4265  | 0.5504  |
+| ViT5 Augmented    | 0.1568 | 0.6287  | 0.4273  | 0.5522  |
 
-Ghi chú: Các kết quả ViT5 có thể thay đổi tùy môi trường huấn luyện (GPU, seed, batch size).
-
----
 
 ## Demo & Models
 
-- Colab Evaluation: https://colab.research.google.com/your_notebook
+- Colab Evaluation: #Private
 - Hugging Face models:
+  - https://huggingface.co/NguyenwillG/vit5-original
+  - https://huggingface.co/NguyenwillG/vit5_augment
   - https://huggingface.co/NguyenwillG/hust_original
   - https://huggingface.co/NguyenwillG/hust_augmented
 
@@ -103,16 +102,8 @@ Ghi chú: Các kết quả ViT5 có thể thay đổi tùy môi trường huấn
 - src/
   - config.py — tất cả các cấu hình experiments
   - data.py — preprocessing / tokenize
-  - train_vit5.py — training script cho ViT5
-  - evaluate.py — đánh giá BLEU/ROUGE/PPL
-- scripts/ hoặc notebooks/ — (nếu có) helper scripts, Colab demo
-
----
-
-## Gợi ý nâng cao
-- Dùng Git LFS cho checkpoint lớn nếu lưu trên GitHub.
-- Thử nhiều seed để ổn định kết quả BLEU.
-- Theo dõi training bằng Weights & Biases / TensorBoard.
+  - train_vit5.py — training script cho ViT5 và hust . (Tên file vit5 nhưng dùng được cho cả 2)
+  - evaluate.py — đánh giá BLEU/ROUGE
 
 ---
 
